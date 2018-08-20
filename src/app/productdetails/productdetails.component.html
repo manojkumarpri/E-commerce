@@ -1,0 +1,49 @@
+<div >
+  <h1>YOUR CART DETAILS BELOW:</h1>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+        <table class="table table-bordered">
+                <thead>
+                  <tr><th>ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Product category</th>
+                    <th>Shop category</th>
+                    <th>Short description</th>
+                    <th>Long Description</th>
+                    <th>Size</th>
+                    <th>Ratings</th>
+                    <th>Discount</th>
+                    <th>Brand name</th>
+                    <th>Sku</th>
+                    <th>Tax</th>
+                    <th>Product id</th>
+                    <th>TotalPrice</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let list of listData">
+                      <td>{{list.id}}</td>
+                      <td><img src="{{list.img}}" class="img-thumbnail" style="height:100px;" />
+                      </td><td>{{list.name}}</td>
+                      <td>{{list.price}}</td><td>
+                {{list.quantity}}</td>
+                <td>{{list.prodCategory}}</td>
+                <td>{{list.shopCategory}}</td>
+                <td>{{list.shortDesc}}</td>
+                <td>{{list.longDesc}}</td>
+                <td>{{list.size}}</td>
+                <td>{{list.rating}}</td>
+                <td>{{list.discount}}</td>
+                <td>{{list.brandName}}</td>
+                <td>{{list.sku}}</td>
+                <td>{{list.tax}}</td>
+                <td>{{list.prodId}}</td>
+                <td>{{list.total}}</td>
+              </tr></tbody></table>
+              
+</div>

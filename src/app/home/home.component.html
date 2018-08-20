@@ -1,0 +1,103 @@
+
+   <button (click)="addc()">+</button>
+   <p>{{count/1000}}k.m</p>
+   <button (click)="sub()">-</button><span style="display:inline-block; width: 20%;"></span>
+
+   <button (click)="findMe()" >Use u R Location</button><br><br>
+   
+  <input style="width: 80%; height: 8vh;"  type="text" placeholder="Search.." name="search" [(ngModel)]="searchTex">
+  <button type="submit" style="width:10%; height:8vh; background-color:#3498DB"><i class="fa fa-search" ></i>Search</button><br><br>
+  
+      <!-- <angular-image-slider [images]="imagesUrl"></angular-image-slider>
+    <ng-slideshow [options]="options" [images]="images"></ng-slideshow> -->
+  
+  <!-- <angular-image-slider [images]="imagesUrl"></angular-image-slider> -->
+      <div class="row" style="background-color: aliceblue" > 
+          <div class="col-sm-6 col-lg-3 col-md-3 col-xs-12" style="background-color:White	;" *ngFor="let list of combine | filter:searchTex | map:count/1000;let i of index"  style="background-color:rgb(230, 235, 233);float: left;" >
+          <div class="m-2"style="background-color: AliceBlue	; width: 90%;height: 95%;"> <center><div style="width: 90%;height:90%;">  <h2>{{list.name}}</h2>
+          <a (click)="openModalDialog(i)">
+            <img  [src]="list.img" width="50%" height="100"/>
+        
+           <p ><strong>ID:</strong>{{list.id}}</p>
+ 
+            <p><strong>Price:</strong>{{list.price}} </p>
+          <p><strong>Available:</strong>{{list.available}}</p>
+          <p ><strong>Quantity:</strong>{{list.quantity}}</p>
+
+        </a>
+     <button style="background-color:lightslategrey " (click)="add(list)">Add</button><button style="background-color: paleturquoise" (click)="del(list)">Remove</button>
+      <br><br><button class="btn btn-primary btn-sm" (click)="view()">add to cart</button><br/><br/><button class="btn btn-danger btn-sm" (click)="delpopup(list.id)">Delete</button>
+       <br><br><button  class="btn btn-primary btn-sm" routerLink="/prolist">View</button> </div>    
+      </center></div></div></div>
+
+
+
+    
+    
+    
+      <!-- <app-map></app-map> -->
+
+      <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+        <!-- modal-dialog -->
+        <div class="modal-dialog" id="vicky" role="document">
+          <!-- modal-content -->
+          <div class="modal-content">
+            <!-- modal-header -->
+            <div class="modal-header">
+              <button type="button" class="close" aria-label="Close" (click)="closeModalDialog()"><span aria-hidden="true">&times;</span></button>
+              <!-- <h4 class="modal-title">Login</h4> -->
+            </div>
+      
+            <!-- modal-body -->
+            <div class="modal-body" id="vicky1">
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                <img [src]="this.popup?.img" alt=""  width="200" height="200"/><br>
+                     {{this.popup?.name}}<br><p>Rating:</p>
+                     {{this.popup?.rating}}<br><p>Quantity:</p>
+                     {{this.popup?.quantity}}          
+                  </div>
+                  
+                  <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                      <button class="btn btn-success btn-xs plus" (click)="add(this.popup)">+</button>
+                      <button class="btn btn-danger btn-xs minus" (click)="del(this.popup)">-</button>
+                       <br><br>
+                       <button class="btn btn-primary btn-sm" (click)="view()">Add to cart</button><br/><br/><button class="btn btn-danger btn-sm" (click)="delpopup(this.popup.id)">Delete</button>
+                  </div>
+              </div>
+            </div>
+      
+            <!-- modal-footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" (click)="closeModalDialog()" >Close</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <footer style="background-color: rgb(195, 199, 204)" class="page-footer font-small unique-color-dark pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+    
+          <!-- Call to action -->
+          <ul class="list-unstyled list-inline text-center py-2">
+            <li class="list-inline-item">
+              <h5 class="mb-1">Register for free</h5>
+            </li>
+            <li class="list-inline-item">
+              <a href="#!" class="btn btn-outline-white btn-rounded">Sign up!</a>
+            </li>
+          </ul>
+          <!-- Call to action -->
+    
+        </div>
+        <!-- Footer Elements -->
+    
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+          <a href="https://www.vpshine.com">Ecommerce.com</a>
+        </div>
+        <!-- Copyright -->
+    
+      </footer>
+    

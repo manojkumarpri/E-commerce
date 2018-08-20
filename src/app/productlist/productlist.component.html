@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<h1>Cart selected items</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr><th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Long Description</th>
+    <th>Total price</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of listData">
+        <td>{{list.id}}</td>
+        <td><img [src]="list.img" class="img-thumbnail" style="height:100px;" />
+        </td><td>{{list.name}}</td>
+        <td>{{list.price}}</td><td>
+  {{list.quantity}}</td>
+  <td>{{list.longDesc}}</td>
+  <td>{{list.total}}</td></tr></tbody>
+  <tfoot>grandTotal:{{gtotal}}</tfoot></table>
+  <button (click)="cal()">calculate</button>

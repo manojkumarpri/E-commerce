@@ -1,0 +1,74 @@
+
+body, html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+.form{
+    text-align: center;
+}
+* {
+    box-sizing: border-box;
+    border-radius: 20px;
+    
+}
+
+.bg-img {
+    /* The image used */
+    background-image: url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
+
+    min-height: 800px;
+    
+    /* Center and scale the image nicely */
+    background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+/* Add styles to the form container */
+.container {
+    position: center;
+    right: 0;
+    margin: 20px;
+    max-width: 500px;
+    padding: 16px;
+    background-color: white;
+    margin-left: 10px; 
+    height: 100%;
+    width: 100%;
+
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password],input[type=email],input[type=number] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit button */
+.bttn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    
+}
+
+.bttn:hover {
+    opacity: 1;
+}
+
+#vicky{
+    text-align:center;
+}

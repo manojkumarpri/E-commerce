@@ -1,0 +1,38 @@
+
+<div class="bg-img">
+    
+  <div class="container">
+    <h1>SignUp</h1>
+    
+    <label for="username"><b>Username</b></label>
+    <input type="text" required [(ngModel)]="providerDetails.name" [ngModelOptions]="{standalone: true}">
+
+    <label for="email"><b>Email</b></label>
+    <input type="email" required [(ngModel)]="providerDetails.email" [ngModelOptions]="{standalone: true}">
+    
+    <label for="number"><b>Mobile number</b></label>
+    <input type="number" required [(ngModel)]="providerDetails.phno" [ngModelOptions]="{standalone: true}">
+
+    <label for="address"><b>Address</b></label>
+    <input type="text"required [(ngModel)]="providerDetails.address" [ngModelOptions]="{standalone: true}">
+    
+    <label for="psw"><b>Enter Password</b></label>
+    <input type="password" required [(ngModel)]="providerDetails.password" [ngModelOptions]="{standalone: true}">
+
+    <label for="psw"><b>Confirm Password</b></label>
+    <input type="password" required [(ngModel)]="providerDetail.confirmpassword" [ngModelOptions]="{standalone: true}">
+
+    <label for="psw"><b>Enter securiy question</b></label>
+    <input type="text" required [(ngModel)]="providerDetails.securityquestion" [ngModelOptions]="{standalone: true}" >
+
+    <label for="psw"><b>Enter securiy answer</b></label>
+    <input type="text" required [(ngModel)]="providerDetails.securityanswer" [ngModelOptions]="{standalone: true}">
+
+    <button type="submit" class="bttn" (click)="signup()">Submit</button>
+    
+  </div>
+  <div>
+    <p style="text-align: center">Exixting user?</p>
+    <button type="button" class="btn btn-primary btn-sm" id="vicky" routerLink="/login">Login</button>
+  </div>
+</div>
