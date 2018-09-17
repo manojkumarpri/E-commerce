@@ -10,3 +10,30 @@
     margin: 0;
     height:200px;
   }
+  #manoj{
+    background-color: #DADEED;
+    /* height:100%;
+    width:100%; */
+      }
+
+  #customers{
+    border-collapse: collapse;
+    width: 40%;
+  }
+
+  #customers td, #customers th{
+    border: 1px solid #DADEED;
+    padding: 10px;
+  }
+
+  #customers tr:nth-child(even){ background-color: lightslategray;}
+
+  #customers tr:hover   { background-color: burlywood;}
+
+  #customers th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(129, 210, 241);
+    color: aliceblue;
+  }

@@ -43,7 +43,7 @@ export class MapComponent {
    
   }
   getshops(){
-    this.apiService.getProduct("commerce/shope").then((result)=>{
+    this.apiService.getitems("shops").then((result)=>{
     this.responseData = result;
     console.log(this.responseData);
     if (this.responseData) {

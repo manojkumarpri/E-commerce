@@ -27,7 +27,7 @@ resetpassword(e){
   var confirmpassword=e.target.elements[1].value;
   this.providerDetails={"phno":this.storage.get('vicky_phno'),"password":password};
   if(this.providerDetails.password==confirmpassword){
-    this.data.postDetails(this.providerDetails,'users/changePassword').then((result)=> {
+    this.data.postShop(this.providerDetails,"http://localhost:3003/users").then((result)=> {
       console.log("success");
       //console.log(this.data.uid);
       //console.log(this.providerDetails.password);

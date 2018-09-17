@@ -42,57 +42,117 @@ export class HomeComponent implements OnInit {
   public cust_id:number;
   constructor(public data:DataService,public data1:ShareService,@Inject(LOCAL_STORAGE) private storage:WebStorageService) {
     console.log("mano");  
+//     this.data.getitems("textile/Chennai").then((result)=>{
+//       this.responseData=result;
+//       localStorage.setItem("quentinTarantino", JSON.stringify(this.responseData));
+//       console.log(this.responseData);
+//       if(this.responseData){
+//     this.listData=this.responseData;
+//   //  this.join();
+//     console.log("success");
+          
+//       }
+//       else{
+//           console.log()
+//       }
+// },(err)=>{console.log("rejection")
+// }).catch((err)=>{
+// console.log("unhandledRejection",err.message);
+// });
+
+
+
+
+    this.getcontacts();
     this.product=new Array();
     this.product1=new Array();
     this.combine=new Array();
     this.product=[];
-    this.getcontacts();
-   
+    //this.join();
+       
   
-    this.imagesUrl = [
-      'https://d5nkxbcmx4bo4.cloudfront.net/faceview/i5b/ia/a3h/affimgs/az-large-78081.jpg',
-      'https://pic.elinkmall.com/HW/HW186/HW186%20(12).jpg',
-      'https://ae01.alicdn.com/kf/HTB1fKl5OVXXXXaOaFXXq6xXFXXXY/Family-Matching-Clothes-Mother-Daughter-Dresses-2018-Brand-Baby-Girls-Dress-Kids-Clothes-Color-graffiti-Women.jpg_640x640.jpg',
-      ];
-            
+        
     
    }
 
   ngOnInit() {
-  
-         
-  }
-  
-  getshops(){
-    this.data.getitems("commerce/shope").then((result)=>{
-      this.response1=result;
-      //localStorage.setItem("quentinTarantino", JSON.stringify(this.responseData));
-      console.log(this.response1);
-      if(this.responseData){
-    this.listData1=this.response1;
     
-    console.log("success");
-     this.join();
-
-      }
+   
+//     this.data.getitems("commerce/shope").then((result)=>{
+//       this.response1=result;
+//       //localStorage.setItem("quentinTarantino", JSON.stringify(this.responseData));
+//       console.log(this.response1);
+//       if(this.responseData){
+//     this.listData1=this.response1;
+    
+//     console.log("success");
+//    this.join();
   
-      else{
-          console.log()
-      }
+//       }
+  
+//       else{
+//           console.log()
+//       }
+// },(err)=>{console.log("rejection")
+// }).catch((err)=>{
+// console.log("unhandledRejection",err.message);
+
+// }); 
+ //this.getshop();
+    
+  }
+  getshop(){
+  this.data.getitems("shops").then((result)=>{
+    this.response1=result;
+    //localStorage.setItem("quentinTarantino", JSON.stringify(this.responseData));
+    console.log(this.response1);
+    if(this.responseData){
+  this.listData1=this.response1;
+  
+  console.log("success");
+ this.join();
+
+    }
+
+    else{
+        console.log()
+    }
 },(err)=>{console.log("rejection")
 }).catch((err)=>{
 console.log("unhandledRejection",err.message);
+
 }); 
-   
   }
+  getcontacts(){
+  this.data.getitems("products").then((result)=>{
+    this.responseData=result;
+    localStorage.setItem("quentinTarantino", JSON.stringify(this.responseData));
+    console.log(this.responseData);
+    if(this.responseData){
+  this.listData=this.responseData;
+
+  console.log("success");
+  this.getshop();        
+    }
+    else{
+        console.log()
+    }
+},(err)=>{console.log("rejection")
+}).catch((err)=>{
+console.log("unhandledRejection",err.message);
+});
+
+}
   join(){
+     console.log(this.listData)
+     console.log(this.listData1)
     var k=this.listData.length;
-    console.log("hellomanowe")
+    console.log(k)
    this.combine=[];
-    for(var i=0;i<k;i++)
-    //  var i=0;
+   for(var i=0;i<k;i++)
       {
         // console.log(this.listData[i].id)
+        this.combine1.Id1 =this.listData[i].Id1;
         this.combine1.id =this.listData[i].id;
         this.combine1.img =this.listData[i].img;;
         this.combine1.name=this.listData[i].name;
@@ -111,18 +171,28 @@ console.log("unhandledRejection",err.message);
        this.combine1.prodId=this.listData[i].prodId;
        this.combine1.total=this.listData[i].total;
        this.combine1.available=this.listData[i].available;
+       var l2=0;
      for(var j=0;j<this.listData1.length;j++){
      if(this.listData[i].shopName==(this.listData1[j].shopname)){
         this.combine1.shopName=this.listData[i].shopName;
         this.combine1.lat=this.listData1[j].latitude;
         this.combine1.lng=this.listData1[j].longitude;
+        console.log("manoooo")
+        l2++;
      }
-     else{
-      this.combine1.shopName="empty";
-      this.combine1.lat=120;
-      this.combine1.lng=120;
+    }
+     if(l2==0){
+       this.combine1.shopName="empty";
+       this.combine1.lat="120";
+       this.combine1.lng="120";
      }
-      }
+    //  else{
+    //   this.combine1.shopName="empty";
+    //   this.combine1.lat=120;
+    //   this.combine1.lng=120;
+    //   console.log("heyyyy")
+    //  }
+    
      // console.log(this.combine1);
      //this.combine = this.combine.concat(this.combine1);
 
@@ -153,7 +223,7 @@ console.log("unhandledRejection",err.message);
   view(){
    this.cust_id= this.storage.get('vicky_id');
    console.log("here add to cart");
-    //  this.data.getp(this.product);  
+     this.data.getp(this.product);  
   console.log(this.cust_id)
   if(this.cust_id!=null){
         
@@ -165,7 +235,8 @@ console.log("unhandledRejection",err.message);
      console.log(delete this.resp[0].id);
      console.log(this.resp);
      for(var d=0;d<this.resp.length;d++){
-       this.resp[d].cust_id=this.cust_id;   
+       this.resp[d].cust_id=this.cust_id;
+       this.resp[d].checked=0;   
      }
     console.log(this.resp);    
     
@@ -174,7 +245,7 @@ console.log("unhandledRejection",err.message);
      
     
     
-   this.data1.postShop(rv, "cart/create").then((result) =>{
+   this.data1.postShop(rv, "orders").then((result) =>{
           var results = this.response;
           console.log(this.response);
           console.log("Successfully updated");
@@ -196,11 +267,14 @@ console.log("unhandledRejection",err.message);
      console.log("home");
     var jj=JSON.parse(localStorage.getItem("manoj"));
     console.log(jj[this.j])
-    this.data1.postShop(jj[this.j], "textile/Chennai").then((result) =>{
+    this.data1.postUpdate(jj[this.j], "products/".concat(jj[this.j].Id1)).then((result) =>{
       var results = this.response;
       console.log(this.response);
       console.log("Successfully updated");
       this.getcontacts();
+      
+
+      
         }, (err)=> {
        }).catch((err) =>{
           console.log("Unhandled rejection",err.message);
@@ -210,25 +284,26 @@ console.log("unhandledRejection",err.message);
 
 }
  
-  getcontacts(){
-    this.data.getitems("textile/Chennai").then((result)=>{
-        this.responseData=result;
-        localStorage.setItem("quentinTarantino", JSON.stringify(this.responseData));
-        console.log(this.responseData);
-        if(this.responseData){
-      this.listData=this.responseData;
-      console.log("success");
-      this.getshops();
-      // this.technologies=this.listData;
-        }
-        else{
-            console.log()
-        }
-},(err)=>{console.log("rejection")
-}).catch((err)=>{
-  console.log("unhandledRejection",err.message);
-});
-}
+//   getcontacts(){
+//     this.data.getitems("textile/Chennai").then((result)=>{
+//         this.responseData=result;
+//         localStorage.setItem("quentinTarantino", JSON.stringify(this.responseData));
+//         console.log(this.responseData);
+//         if(this.responseData){
+//       this.listData=this.responseData;
+//       console.log("success");
+//      // this.getshops();
+//       // this.technologies=this.listData;
+//         }
+//         else{
+//             console.log()
+//         }
+// },(err)=>{console.log("rejection")
+// }).catch((err)=>{
+//   console.log("unhandledRejection",err.message);
+// });
+
+// }
 
 
    /**
@@ -259,7 +334,7 @@ totalPrice(pid,j){
 public j:any;
 public com:any;
 add(pid:Product){
-  
+  //this.product=[];
   console.log("Hai");
   console.log(pid);
   var jj=JSON.parse(localStorage.getItem("quentinTarantino"));
@@ -267,7 +342,7 @@ add(pid:Product){
   this.com=jj;
   localStorage.setItem("refer", JSON.stringify(this.com));
    for(var i=0;i<this.listData.length;i++){
-    if(this.listData[i].id === pid.id)
+    if(this.listData[i].Id1 === pid.Id1)
     {  
       this.j=i;
       if(this.combine[i].quantity<this.listData[i].available){
@@ -301,7 +376,7 @@ add(pid:Product){
  this.totalPrice(pid,this.j);
  
  this.product.push(pid);
- this.data.getp(this.product);
+ //this.data.getp(this.product);
 
   alert("Your selected:"+this.combine[this.j].quantity+"itemsAnd Total Price is:$"+this.listData[this.j].total);
  // console.log(jj[this.j].quantity);

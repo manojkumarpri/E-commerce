@@ -107,7 +107,7 @@ const appRoutes:Routes= [
     AgmCoreModule.forRoot({
       // please get your own API key here:
       // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
-      apiKey: 'AIzaSyDvjfpnQ2uJ7Wsfrdy8TAXz_uFO6q9In_A'
+      apiKey: 'AIzaSyC3mqobdHT6Czt6GDPsNGSeHOBFLVAJRdA'
     })
   ],
   schemas:[NO_ERRORS_SCHEMA],

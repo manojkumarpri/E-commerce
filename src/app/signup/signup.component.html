@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="bg-img">
     
   <div class="container">
@@ -35,4 +35,57 @@
     <p style="text-align: center">Exixting user?</p>
     <button type="button" class="btn btn-primary btn-sm" id="vicky" routerLink="/login">Login</button>
   </div>
-</div>
+</div> -->
+
+<!-- new signup -->
+
+   <!-- new login form -->
+   <div id="contact">
+			<div class="section-content">
+          <h2>Signup</h2>
+				<h1 class="section-header">Get in <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Touch with us</span></h1>
+			</div>
+			<div class="contact-section">
+			<div class="container">
+					<div>
+			  			    <div class="form-group">
+			  				    <label for="exampleInputUsername">Your name</label>
+					    	    <input type="text" class="form-control" placeholder="User name" required [(ngModel)]="providerDetails.name" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername">Email</label>
+                    <input type="email" class="form-control" placeholder="Email id" required [(ngModel)]="providerDetails.email" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername">Mobile number</label>
+                    <input type="number" class="form-control" placeholder="User name" required [(ngModel)]="providerDetails.phno" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername">Address</label>
+                    <input type="text" class="form-control" placeholder="Address" required [(ngModel)]="providerDetails.address" [ngModelOptions]="{standalone: true}">
+                   </div>
+                  <div class="form-group">
+                    <label for="telephone">Password</label>
+                    <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="providerDetails.password" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <div class="form-group">
+                    <label for="telephone">Confirm Password</label>
+                    <input type="password" class="form-control" placeholder="Confirm password" required [(ngModel)]="providerDetail.confirmpassword" [ngModelOptions]="{standalone: true}">
+                 </div>
+                 <div class="form-group">
+                    <label for="exampleInputUsername">Security Question</label>
+                    <input type="text" class="form-control" placeholder="Security Question" required [(ngModel)]="providerDetails.securityquestion" [ngModelOptions]="{standalone: true}">
+                 </div>
+                 <div class="form-group">
+                    <label for="exampleInputUsername">Security Answer</label>
+                    <input type="text" class="form-control" placeholder="Security Answer" required [(ngModel)]="providerDetails.securityanswer" [ngModelOptions]="{standalone: true}">
+                 </div>
+
+            </div>
+            
+			  			<div class="manoj">
+			  				<button type="submit" class="btn  btn-outline-primary" style="text-align: center" (click)="signup()"><i class="fa fa-paper-plane" aria-hidden="true"></i>Signup</button><br><br>
+			  			</div>					
+      </div>
+      
+    </div>

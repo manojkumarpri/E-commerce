@@ -15,7 +15,7 @@ import { NgModule } from '@angular/core';
 })
 export class DataService {
   public result1;id:any
-  API_URL  =  'http://localhost:8080/';
+  API_URL  =  'http://192.168.1.48:3000/';
  public product:any;
   constructor(private  http:  HttpClient) { }
 
@@ -30,6 +30,18 @@ public getProduct(type){
     });
   });
 }
+public getshopbyid(type){
+  return  new Promise((resolve,reject)=>{
+    let headers=new HttpHeaders();
+    this.http.get(this.API_URL+type,{headers:headers}).
+    subscribe(res=>{
+      resolve(res);
+    },(err)=>{
+      reject(err);
+    });
+  });
+}
+
 public postShop(details,type){
   return  new Promise((resolve,reject)=>{
     let headers=new HttpHeaders();

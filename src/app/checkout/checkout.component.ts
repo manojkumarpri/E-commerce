@@ -12,9 +12,15 @@ declare let paypal: any;
 export class CheckoutComponent implements OnInit {
   public responseData: any;
   public listData: any;
+  public listData1: any;
+  ordersList:any;
+  public uid:string;
   public address:String;
   newaddress:boolean=false;
+  public response1:any;
   show:boolean=false;
+  public total:number;
+  public finalAmount:number;
   show1:boolean=false;
   public providerDetail1={"address":""};
   isLoggedOut:boolean=true;
@@ -25,35 +31,44 @@ export class CheckoutComponent implements OnInit {
    if( this.storage.get('vicky')){
      this.isLoggedOut=false;
    }
-   }
+   console.log("hello")
+   this.uid=this.storage.get('vicky_id');
+//    this.data.getitems("cart/show/"+this.uid).then((result)=>{
+//     this.response1=result;
+//     //localStorage.setItem("quentinTarantino", JSON.stringify(this.responseData));
+//     console.log(this.response1);
+//     if(this.response1){
+//   this.listData1=this.response1;
+  
+//   console.log("success");
+   
+
+//     }
+
+//     else{
+//         console.log()
+//     }
+// },(err)=>{console.log("rejection")
+// }).catch((err)=>{
+// console.log("unhandledRejection",err.message);
+// }); 
+ 
+}
+   
 
   ngOnInit() {
+    this.total=this.storage.get('vicky_total');
+    this.finalAmount=this.total;
+    //this.listData1= this.data.respon();
+   // console.log(this.listData1);
     //getting pre given address
+    this.listData1=this.data.respon();
+     console.log(this.listData1)
     this.username=this.storage.get('vicky_uname');
-    this.data.getUsers('users/user').then((result)=>{
-      this.responseData = result;
-      //console.log(this.responseData);
-      if (this.responseData) {
-        this.listData = this.responseData;
-       
-        for(var i=0;i<this.listData.length;i++){
-          if(this.username==this.listData[i].name){
-            this.address=this.listData[i].address;
-            
-          console.log(this.address);           
-         }else{
-          console.log('you are unauthenticted');
-        } 
-        }
-        //console.log(this.listData);
-      }else {
-        console.log('no data is get');
-      }
-    }, (err) => {
-        console.log("Rejection");
-    }).catch((err)=>{
-      console.log('unHandledRejection', err.message);
-    });
+    console.log(this.storage.get('vicky_total'));
+    console.log(this.uid);
+   this.getUser();
+   this.getOrdersOfUser();
   }
   //new address show or hide
   addrtoggle() {
@@ -79,7 +94,7 @@ export class CheckoutComponent implements OnInit {
 
   addScript: boolean = false;
   paypalLoad: boolean = true;
-  finalAmount: number= 100;
+  //finalAmount: number= this.total;
   paypalConfig = {
     env: 'sandbox',
     style: {
@@ -130,6 +145,41 @@ export class CheckoutComponent implements OnInit {
       scripttagElement.onload = resolve;
       document.body.appendChild(scripttagElement);
     })
+  }
+
+
+  
+  getOrdersOfUser(){
+    this.data.getshopbyid("cart/show/"+this.uid).then((result) =>{
+      
+      this.ordersList=result;
+        }, (err)=> {
+       }).catch((err) =>{
+          console.log("Unhandled rejection",err.message);
+       
+     alert("helloo");
+  });
+   console.log(this.ordersList) 
+  }
+
+  getUser(){
+    this.data.getUsersById('users/'.concat(this.uid)).then((result)=>{
+      this.responseData = result;
+      console.log(this.responseData);
+      if (this.responseData) {
+       
+       this.listData=this.responseData;
+       this.address=this.listData.address;
+       console.log(this.listData);
+      }else {
+        console.log();
+      }
+    }, (err) => {
+        console.log("Rejection");
+    }).catch((err)=>{
+      console.log('unHandledRejection', err.message);
+    });
+    
   }
 
 }

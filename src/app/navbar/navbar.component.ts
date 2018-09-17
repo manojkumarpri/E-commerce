@@ -19,10 +19,11 @@ export class NavbarComponent implements OnInit {
   
   
   ngOnInit(){
-  //  console.log(this.storage.get('vicky'));
-    //if(this.storage.get('vicky')){
+   console.log(this.storage.get('vicky'));
+    if(this.storage.get('vicky')){
       //console.log(this.data.username);
-      //this.isUserLoggedOut=false;
+      this.isUserLoggedOut=false;
     }
   
+}
 }

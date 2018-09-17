@@ -1,12 +1,13 @@
 
-   <button (click)="addc()">+</button>
+
+<button (click)="addc()">+</button>
    <p>{{count/1000}}k.m</p>
    <button (click)="sub()">-</button><span style="display:inline-block; width: 20%;"></span>
 
-   <button (click)="findMe()" >Use u R Location</button><br><br>
+   <button (click)="findMe()" class="btn btn-default">Use u R Location</button><br><br>
    
-  <input style="width: 80%; height: 8vh;"  type="text" placeholder="Search.." name="search" [(ngModel)]="searchTex">
-  <button type="submit" style="width:10%; height:8vh; background-color:#3498DB"><i class="fa fa-search" ></i>Search</button><br><br>
+  <input style="width: 80%; height: 4vh;"  type="text" placeholder="Search.." name="search" [(ngModel)]="searchTex">
+  <button type="submit" style="background-color:#3498DB"><i class="fa fa-search" ></i>Search</button><br><br>
   
       <!-- <angular-image-slider [images]="imagesUrl"></angular-image-slider>
     <ng-slideshow [options]="options" [images]="images"></ng-slideshow> -->
@@ -18,7 +19,7 @@
           <a (click)="openModalDialog(i)">
             <img  [src]="list.img" width="50%" height="100"/>
         
-           <p ><strong>ID:</strong>{{list.id}}</p>
+           <p ><strong>ID:</strong>{{list.Id1}}</p>
  
             <p><strong>Price:</strong>{{list.price}} </p>
           <p><strong>Available:</strong>{{list.available}}</p>

@@ -31,7 +31,7 @@ export class ProductdetailsComponent {
     // this.response=this.data.respon();
     // console.log(this.response);
     // this.toObject(this.response);
-    this.data.getProduct("cart/show").then((result)=>{
+    this.data.getitems("orders").then((result)=>{
       this.responseData=result;
       console.log(this.responseData);
       if(this.responseData){

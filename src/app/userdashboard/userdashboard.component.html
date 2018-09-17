@@ -1,4 +1,8 @@
-<a (click)="logout()" class="btn btn-info btn-sm"  style="float:right">
+     
+     
+    <div id="manoj"> 
+     <a (click)="logout()" class="btn btn-info btn-sm"  style="float:right">
+    
         <span class="glyphicon glyphicon-log-out"></span> Log out
       </a>
     
@@ -28,16 +32,22 @@
                       <div id="orders" class="tab-pane fade ">
                           <div class="row pb-2">
                               <div class="col-md-7">
-                           <strong>      Orders</strong>
-                                  <ul>
-                                    <li *ngFor="let list of listData1">
-                                    <strong>ID:</strong><p>{{list.id}}</p>
- 
-            <p><strong>Price:</strong>{{list.price}} </p>
-     <p ><strong>Quantity:</strong>{{list.quantity}}</p>
-
-                                    </li>     </ul>
-                              </div>
+                           <strong>Orders</strong>
+                           <table id="customers">
+                           <tr>
+                               <th>Id</th>
+                               <th>Price</th>
+                               <th>Quantity</th>
+                           </tr>
+                        <tr *ngFor="let list of listData1">
+                            
+                            <td>{{list._Id}}</td>
+                            <td>{{list.price}} </td>
+                            <td >{{list.quantity}}</td>
+                                                          
+                        </tr>
+                            </table>
+                        </div>
                               <div class="col-md-5"></div>
                           </div>
                       </div>
@@ -47,13 +57,12 @@
                             <div class="col-md-7">
                          <strong>      TOTAL:</strong>
                          <ul>
-                            <li *ngFor="let list of listData1">
-                            <strong>TOTALPRICE:</strong><p>{{list.total}}</p>
+                                                       <strong>TOTALPRICE:</strong><p>{{this.gtotal}}</p>
                                   
-                                  </li></ul>
+                                  </ul>
  </div> 
                   </div>
               </div>
           </div>
       
-      
+      </div>

@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
 //check phone number already
-    this.data.getUsers('users/user').then((result)=>{
+    this.data.getitems("users").then((result)=>{
       this.responseData = result;
       //console.log(this.responseData);
       if (this.responseData) {
@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit {
       if(this.phonenoValidate()){
       alert('your details are updated');
       console.log(this.providerDetails);
-      this.data.postDetails(this.providerDetails,'users/user').then((result)=> {
+      this.data.postShop(this.providerDetails,"users").then((result)=> {
         console.log("success");
       },(err)=>{
     

@@ -13,23 +13,28 @@ export class UserdashboardComponent implements OnInit {
   listData: any;
   ordersList:any;
   listData1:any;
+  gtotal:any;
   public uid:string;
   constructor(public data:DataService,public router:Router,@Inject(LOCAL_STORAGE) private storage:WebStorageService) {
     //console.log(this.data.user_id);
-      this.listData1= this.data.respon();
-      console.log(this.listData1);
+      // this.listData1= this.data.respon();
+      // console.log(this.listData1);
+      this.uid=this.storage.get('vicky_id');
+      this.getOrdersOfUser();
    }
 
   ngOnInit() {
    this.uid=this.storage.get('vicky_id');
+  this.gtotal=this.storage.get('vicky_total');
+  console.log(this.gtotal)
    console.log(this.uid);
    this.getUser();
-   this.getOrdersOfUser();
+ //  this.getOrdersOfUser();
   }
 
 
   getUser(){
-    this.data.getUsersById('users/user/'.concat(this.uid)).then((result)=>{
+    this.data.getitems('users/'.concat(this.uid)).then((result)=>{
       this.responseData = result;
       console.log(this.responseData);
       if (this.responseData) {
@@ -48,21 +53,29 @@ export class UserdashboardComponent implements OnInit {
   }
 
   getOrdersOfUser(){
-    this.data.postShop(this.uid, "orders/orderFilter").then((result) =>{
-      
-      this.ordersList=result;
-        }, (err)=> {
-       }).catch((err) =>{
-          console.log("Unhandled rejection",err.message);
+    this.data.getitems('orders/'.concat(this.uid)).then((result)=>{
+      this.responseData = result;
+      console.log(this.responseData);
+      if (this.responseData) {
        
-     alert("helloo");
-  });
+       this.listData1=this.responseData;
+       console.log(this.listData1);
+      }else {
+        console.log();
+      }
+    }, (err) => {
+        console.log("Rejection");
+    }).catch((err)=>{
+      console.log('unHandledRejection', err.message);
+    });
+    
     
   }
 
 logout(){
   //this.data.userLoggedIn=false;
   localStorage.clear();
+  window.location.reload(true);
   this.router.navigate(['/']);
 }
 

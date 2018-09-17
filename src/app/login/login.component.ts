@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
      
      console.log(username);
      //this.data.username=username;
-    this.data.getUsers('users/user').then((result)=>{
+    this.data.getitems("users").then((result)=>{
       this.responseData = result;
       console.log(this.responseData);
       if (this.responseData) {
@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
             //location.reload(true);
             alert("hai");
             //localStorage.clear();
+            window.location.reload(true);
             this.router.navigate(['dashboard']);
             // this.router.navigateByUrl('/nav', {skipLocationChange: true}).then(()=>
             // this.router.navigate(["/"]));
@@ -108,7 +109,7 @@ export class LoginComponent implements OnInit {
 // For send mob number
 
 submit(){
-  this.data.getUsers('users/user').then((result)=>{
+  this.data.getitems("users").then((result)=>{
     this.responseData = result;
     //console.log(this.responseData);
     if (this.responseData) {
